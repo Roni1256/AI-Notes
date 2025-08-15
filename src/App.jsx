@@ -19,6 +19,7 @@ import NewFolder from './pages/NewFolder';
 import Folder from './pages/Folder';
 import File from './pages/File';
 import EditFolder from './pages/EditFolder'
+import { Navigate } from 'react-router-dom';
 
 export const UserContext=createContext()
 export const LoaderContext=createContext()
@@ -44,7 +45,7 @@ const App = () => {
         setIsInitialLoading(false);
       } catch (error) {
         setLoggedIn(false);
-        navigate('/');
+        // navigate('/authenticate');
         setIsInitialLoading(false);
       }
     }
@@ -59,31 +60,23 @@ const App = () => {
       <UserContext.Provider value={[isLoggedIn,setLoggedIn]}>
         <LoaderContext.Provider value={[isInitialLoading,setIsInitialLoading]}>
           <Routes>
-            {!isLoggedIn ? (
-              <>
-                <Route path='/' element={<Landing/>}/>
-                <Route path='/authenticate' element={<Authentication/>}/>
-                <Route path='/verification' element={<Verification/>}/>
-              </>
-            ) : (
-              <>
-                <Route path='/' element={<Dashboard/>}>
-                  <Route path='' element={<Home/>}/>
-                  <Route path='ai-notes' element={<AIPrompt/>}/>
-                  <Route path='workspace' element={<Workspace/>}/>
-                  <Route path='workspace/new-note' element={<NewNotes/>}/>
-                  <Route path='workspace/:id' element={<Note/>}/>
-                  <Route path='profile' element={<Profile/>}/>
-                  <Route path='folders' element={<Folders/>}/>
-                  <Route path='folders/new-folder' element={<NewFolder/>}/>
-                  <Route path='folders/edit-folder/:foldername' element={<EditFolder/>}/>
-                  <Route path='folders/:foldername' element={<Folder/>}/>
-                  <Route path='folders/:foldername/:id' element={<File/>}/>
-                </Route>
-              </>
-            )}
-          </Routes>
-        </LoaderContext.Provider>
+            <Route path='/' element={!isLoggedIn ? <Landing/> : <Navigate to="/workspace"/>}/>
+            <Route path='/authenticate' element={!isLoggedIn ? <Authentication/> : <Navigate to="/workspace"/>}/>
+            <Route path='/verification' element={!isLoggedIn ? <Verification/> : <Navigate to="/workspace"/>}/>
+            
+            <Route path='/' element={isLoggedIn ? <Dashboard/> : <Navigate to="/"/>}>
+              <Route path='ai-notes' element={isLoggedIn ? <AIPrompt/> : <Navigate to="/"/>}/>
+              <Route path='workspace' element={isLoggedIn ? <Workspace/> : <Navigate to="/"/>}/>
+              <Route path='workspace/new-note' element={isLoggedIn ? <NewNotes/> : <Navigate to="/"/>}/>
+              <Route path='workspace/:id' element={isLoggedIn ? <Note/> : <Navigate to="/"/>}/>
+              <Route path='profile' element={isLoggedIn ? <Profile/> : <Navigate to="/"/>}/>
+              <Route path='folders' element={isLoggedIn ? <Folders/> : <Navigate to="/"/>}/>
+              <Route path='folders/new-folder' element={isLoggedIn ? <NewFolder/> : <Navigate to="/"/>}/>
+              <Route path='folders/edit-folder/:foldername' element={isLoggedIn ? <EditFolder/> : <Navigate to="/"/>}/>
+              <Route path='folders/:foldername' element={isLoggedIn ? <Folder/> : <Navigate to="/"/>}/>
+              <Route path='folders/:foldername/:id' element={isLoggedIn ? <File/> : <Navigate to="/"/>}/>
+            </Route>
+          </Routes>        </LoaderContext.Provider>
       </UserContext.Provider>
     </div>
   )

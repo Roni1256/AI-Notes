@@ -54,6 +54,8 @@
       try {
         if(isSignIn){
           const resp= await axiosInstance.post(endpoints.login,{email:email,password:password});
+          console.log(resp.data);
+          
           setAuthDetails(resp.data)
           navigate('/')
           console.log(resp);

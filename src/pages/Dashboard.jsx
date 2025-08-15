@@ -16,6 +16,7 @@ const Dashboard = () => {
     const path = location.pathname.split('/').pop() || 'Home'
     setPage(path.charAt(0).toUpperCase() + path.slice(1))
   }, [location.pathname])
+  console.log(user);
   
   
   return (

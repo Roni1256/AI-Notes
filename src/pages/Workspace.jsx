@@ -8,7 +8,7 @@ import NotesCard from "../components/NotesCard.jsx";
 import { Storage } from "../components/styleComponents/Storage.jsx";
 import { useNavigate } from "react-router-dom";
 import { axiosInstance } from "../context/axios.js";
-import { UserContext } from "../App.jsx";
+import { LoaderContext, UserContext } from "../App.jsx";
 const Workspace = () => {
   const [isGrid, setGrid] = useState(true);
   const navigate = useNavigate();
@@ -25,7 +25,7 @@ const Workspace = () => {
   const [user, setUser] = useContext(UserContext);
   const [folders,setfolders]=useState([])
   const [currentFolder,setCurrentFolder]=useState()
-
+  const [isInitialLoading,setIsInitialLoading]=useContext(LoaderContext)
 
   
 
@@ -57,6 +57,8 @@ const Workspace = () => {
     try {
       const resp=await axiosInstance.get(`/folders/all/${user._id}`)
       setfolders(resp.data)
+      console.log(resp.data);
+      
       setCurrentFolder(resp.data[0]._id)
       fetchFolderNotes(resp.data[0])
     } catch (error) {

@@ -19,13 +19,13 @@ import endpoints from "../endpoints/endpoints";
 
 const styles = {
   container:
-    "fixed top-0 left-0 h-screen bg-white/10 md:bg-white backdrop-blur-md  w-[250px] md:w-[350px] transition-all duration-300 transform z-40 border-r border-neutral-200", 
+    "fixed top-0 left-0 overflow-auto bg-white/10 md:bg-white backdrop-blur-md  w-[250px] md:w-[300px] transition-all duration-300 transform z-40 border-r border-neutral-200", 
   mobileContainer:
     "fixed top-0 left-0 h-full bg-white/10 shadow-lg w-[250px] transition-all duration-300 transform -translate-x-full",
   subcontainer: "flex flex-col p-4 gap-2",
   logo: "text-2xl font-bold mb-8 text-center text-neutral-900",
   links:
-    "flex items-center gap-3 p-2 rounded-lg text-neutral-900 hover:bg-gray-200 active:ring-2 active:ring-gray-700 transition duration-300 ease-in-out",
+    "flex  items-center gap-3 p-2 rounded-lg text-neutral-900 hover:bg-gray-200 active:ring-2 active:ring-gray-700 transition duration-300 ease-in-out",
   sectionTitle: "text-sm font-semibold text-neutral-500 px-4 mt-6 mb-2",
   upgradeContainer: "bg-gradient-to-r from-neutral-900 to-neutral-800 m-2 p-4 rounded-lg text-white",
   upgradeButton: "mt-3 w-full bg-white text-neutral-900 py-2 rounded-lg font-semibold hover:bg-gray-100 transition-all",
@@ -120,7 +120,7 @@ const NavBar = () => {
             <Settings size={20} /> Settings
           </Link>
 
-          <div className={styles.upgradeContainer}>
+          {/* <div className={styles.upgradeContainer}>
             <div className="flex items-center gap-2">
               <Crown size={20} />
               <span className="font-semibold">Upgrade to Pro</span>
@@ -129,7 +129,7 @@ const NavBar = () => {
             <button className={styles.upgradeButton}>
               Upgrade Now
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
     </>

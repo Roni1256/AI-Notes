@@ -15,9 +15,9 @@ const Dashboard = () => {
   useEffect(() => {
     const path = location.pathname.split('/').pop() || 'Home'
     setPage(path.charAt(0).toUpperCase() + path.slice(1))
+    
   }, [location.pathname])
   console.log(user);
-  
   
   return (
     <div className='flex  w-full'>
@@ -38,7 +38,7 @@ const Dashboard = () => {
                   hover:border-neutral-500
                    cursor-pointer flex items-center justify-center w-10 h-10 text-gray-700 font-medium transition-all text-2xl '
                    onClick={() => navigate('/profile')}>
-                  {user.name[0].toUpperCase()}</button>                
+                  {user.name[0].toUpperCase()||user.name.toUpperCase()}</button>                
                 </div>
               }
             </div>

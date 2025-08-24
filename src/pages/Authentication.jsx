@@ -72,7 +72,7 @@
         }
       } catch (error) {
         console.log("Error Catched");
-        setError(error.response?.data?.message);
+        setError(error.response?.data?.message || error.response?.data?.error);
         console.log(error);
       }
       console.log({ email, password, username });

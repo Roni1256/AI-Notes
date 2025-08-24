@@ -22,6 +22,7 @@ import EditFolder from "./pages/Folder/EditFolder";
 import { Navigate } from "react-router-dom";
 import PPTHome from "./pages/PPT/PPTHome";
 import Programmers from "./pages/Programmers/Programmers";
+import FlowchartHome from "./pages/Flowcharts/FlowchartHome";
 
 export const UserContext = createContext();
 export const LoaderContext = createContext();
@@ -129,6 +130,10 @@ const App = () => {
               <Route
                 path="programming"
                 element={isLoggedIn ? <Programmers /> : <Navigate to="/" />}
+              />
+              <Route
+                path="flowchart"
+                element={isLoggedIn ? <FlowchartHome /> : <Navigate to="/" />}
               />
             </Route>
           </Routes>{" "}

@@ -16,6 +16,7 @@ import {
   Presentation,
   Code,
 } from "lucide-react";
+import { RiFlowChart } from "react-icons/ri";
 import { axiosInstance } from "../context/axios";
 import endpoints from "../endpoints/endpoints";
 
@@ -99,10 +100,10 @@ const NavBar = () => {
           </Link>
           <Link
             className={styles.links}
-            to="/favorites"
+            to="/flowchart"
             onClick={() => setIsOpen(false)}
           >
-            <Star size={20} /> Favorites
+            <RiFlowChart size={20}/> Flow Charts
           </Link>
           <div className="bg-gray-200 w-full h-[0.5px]"/>
           <h2 className={styles.sectionTitle}>MY LIBRARY</h2>

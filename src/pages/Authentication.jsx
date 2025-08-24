@@ -79,10 +79,10 @@
     };
 
     const googleAuth = () => {
-      window.location.href = 'http://localhost:5000/api/auth/google';
+      window.location.href = 'https://ai-notes-backend-livid.vercel.app//api/auth/google';
     }
     const githubAuth=()=>{
-      window.location.href = 'http://localhost:5000/api/auth/github';
+      window.location.href = 'https://ai-notes-backend-livid.vercel.app/api/auth/github';
     }
     
     return (

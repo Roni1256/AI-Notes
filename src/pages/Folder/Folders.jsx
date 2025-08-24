@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import Title from "../components/styleComponents/Title.jsx";
+import Title from "../../components/styleComponents/Title.jsx";
 import "quill/dist/quill.snow.css";
 import {
   FolderArchiveIcon,
@@ -11,14 +11,14 @@ import {
   Star,
   Trash,
 } from "lucide-react";
-import { folders } from "../lib/data.jsx";
-import Input from "../components/Universal/Input.jsx";
-import Button from "../components/Universal/Button.jsx";
-import NotesCard from "../components/NotesCard.jsx";
-import { Storage } from "../components/styleComponents/Storage.jsx";
+import { folders } from "../../lib/data.jsx";
+import Input from "../../components/Universal/Input.jsx";
+import Button from "../../components/Universal/Button.jsx";
+import NotesCard from "../Notes/NotesCard.jsx";
+import { Storage } from "../../components/styleComponents/Storage.jsx";
 import { useNavigate } from "react-router-dom";
-import { axiosInstance } from "../context/axios.js";
-import { UserContext } from "../App.jsx";
+import { axiosInstance } from "../../context/axios.js";
+import { UserContext } from "../../App.jsx";
 import { FaEdit, FaExclamation, FaExclamationCircle, FaFolder, FaHome, FaTrash } from "react-icons/fa";
 
 const Folders = () => {

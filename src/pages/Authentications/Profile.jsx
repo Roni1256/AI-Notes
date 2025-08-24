@@ -1,9 +1,9 @@
-import Title from '../components/styleComponents/Title'
+import Title from '../../components/styleComponents/Title'
 import React from 'react'
-import ProfileTab from './Profile/ProfileTab'
-import SecurityTab from './Profile/SecurityTab'
-import Button from '../components/Universal/Button'
-import { axiosInstance } from '../context/axios'
+import ProfileTab from '../Profile/ProfileTab'
+import SecurityTab from '../Profile/SecurityTab'
+import Button from '../../components/Universal/Button'
+import { axiosInstance } from '../../context/axios'
 import { useNavigate } from 'react-router-dom'
 const Profile = () => {
   const navigate=useNavigate()

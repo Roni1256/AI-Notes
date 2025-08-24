@@ -1,8 +1,8 @@
 import axios from "axios";
-import GeneratingLoader from "../styleComponents/GeneratingLoader";
+import GeneratingLoader from "./GeneratingLoader";
 import { Brain, ChevronLeft, ChevronRight } from "lucide-react";
 import React, { useState } from "react";
-import { axiosInstance } from "../../context/axios";
+import { axiosInstance } from "../../../context/axios";
 
 const defaultPrompts = [
   "Create a Java program to implement a binary search tree",

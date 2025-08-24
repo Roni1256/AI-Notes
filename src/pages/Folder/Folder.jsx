@@ -1,6 +1,6 @@
-import { axiosInstance } from "../context/axios";
-import { UserContext } from "../App";
-import Title from "../components/styleComponents/Title";
+import { axiosInstance } from "../../context/axios";
+import { UserContext } from "../../App";
+import Title from "../../components/styleComponents/Title";
 import React, { useContext, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { FaFileAlt } from "react-icons/fa";

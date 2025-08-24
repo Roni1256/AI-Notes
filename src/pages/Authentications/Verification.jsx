@@ -1,10 +1,10 @@
 import axios from 'axios'
 import React, { useContext, useState } from 'react'
 import { FaEnvelope, FaLock, FaCheckCircle, FaRedoAlt } from 'react-icons/fa'
-import endpoints from '../endpoints/endpoints'
+import endpoints from '../../endpoints/endpoints'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { axiosInstance } from '../context/axios'
-import { UserContext } from '../App'
+import { axiosInstance } from '../../context/axios'
+import { UserContext } from '../../App'
 
 const Verification = () => {
   const [verificationCode, setVerificationCode] = useState(['', '', '', ''])

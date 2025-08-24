@@ -1,5 +1,5 @@
 import { EditorContent, useEditor } from '@tiptap/react'
-import Title from '../components/styleComponents/Title'
+import Title from '../../components/styleComponents/Title'
 import React from 'react'
 import { useLocation } from 'react-router-dom'
 import StarterKit from '@tiptap/starter-kit'

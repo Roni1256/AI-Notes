@@ -1,11 +1,11 @@
 import { X } from "lucide-react";
-import Title from "../components/styleComponents/Title";
-import Input from "../components/Universal/Input";
+import Title from "../../components/styleComponents/Title";
+import Input from "../../components/Universal/Input";
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { axiosInstance } from "../context/axios";
-import { UserContext } from "../App";
-import Button from "../components/Universal/Button";
+import { axiosInstance } from "../../context/axios";
+import { UserContext } from "../../App";
+import Button from "../../components/Universal/Button";
 
 const NewFolder = () => {
   const [folderDetails, setFolderDetails] = useState({

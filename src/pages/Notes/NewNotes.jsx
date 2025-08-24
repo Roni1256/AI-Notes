@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import Title from '../components/styleComponents/Title';
-import TextEditor from '../components/Universal/TextEditor';
-import Input from '../components/Universal/Input';
-import Button from '../components/Universal/Button';
+import Title from '../../components/styleComponents/Title';
+import TextEditor from '../../components/Universal/TextEditor';
+import Input from '../../components/Universal/Input';
+import Button from '../../components/Universal/Button';
 import { Save, ArrowLeft, Tag, Clock, Folder, X } from 'lucide-react';
-import {axiosInstance} from '../context/axios.js';
+import {axiosInstance} from '../../context/axios.js';
 import { useContext } from 'react';
-import { UserContext } from '../App.jsx';
+import { UserContext } from '../../App.jsx';
 const NewNotes = () => {
   const [noteTitle, setNoteTitle] = useState('');
   const [tags, setTags] = useState([]);

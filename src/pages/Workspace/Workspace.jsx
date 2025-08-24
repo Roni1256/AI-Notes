@@ -1,14 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
-import Title from "../components/styleComponents/Title.jsx";
+import Title from "../../components/styleComponents/Title.jsx";
 import "quill/dist/quill.snow.css";
 import { Folder, Grid, List, Plus, Settings, Star, Trash } from "lucide-react";
-import Input from "../components/Universal/Input.jsx";
-import Button from "../components/Universal/Button.jsx";
-import NotesCard from "../components/NotesCard.jsx";
-import { Storage } from "../components/styleComponents/Storage.jsx";
+import Input from "../../components/Universal/Input.jsx";
+import Button from "../../components/Universal/Button.jsx";
+import NotesCard from "../Notes/NotesCard.jsx";
+import { Storage } from "../../components/styleComponents/Storage.jsx";
 import { useNavigate } from "react-router-dom";
-import { axiosInstance } from "../context/axios.js";
-import { LoaderContext, UserContext } from "../App.jsx";
+import { axiosInstance } from "../../context/axios.js";
+import { LoaderContext, UserContext } from "../../App.jsx";
 const Workspace = () => {
   const [isGrid, setGrid] = useState(true);
   const navigate = useNavigate();

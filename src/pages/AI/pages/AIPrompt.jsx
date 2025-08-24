@@ -1,11 +1,11 @@
 import { Download, Info, SaveIcon, X } from "lucide-react";
-import Title from "../components/styleComponents/Title";
+import Title from "../../../components/styleComponents/Title";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { axiosInstance } from "../context/axios";
-import GeneratingLoader from "../components/styleComponents/GeneratingLoader";
-import GeneratedList from "../components/AISpace/GeneratedList";
-import GenerationSpace from "../components/AISpace/GenerationSpace";
+import { axiosInstance } from "../../../context/axios";
+// import GeneratingLoader from "../../../components/styleComponents/GeneratingLoader";
+import GeneratedList from "../components/GeneratedList";
+import GenerationSpace from "../components/GenerationSpace";
 
 const AIPrompt = () => {
   const [prompt, setPrompt] = useState("");

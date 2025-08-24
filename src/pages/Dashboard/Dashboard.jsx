@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react'
-import NavBar from '../components/NavBar'
+import NavBar from '../../components/NavBar'
 import { Outlet, useLocation, useNavigate } from 'react-router-dom'
-import Breadcrumbs from '../components/styleComponents/Breadcrumbs'
-import { UserContext } from '../App'
+import Breadcrumbs from '../../components/styleComponents/Breadcrumbs'
+import { UserContext } from '../../App'
 import { User } from 'lucide-react'
 
 const Dashboard = () => {

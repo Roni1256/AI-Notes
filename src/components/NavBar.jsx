@@ -13,6 +13,8 @@ import {
   Crown,
   Menu,
   X,
+  Presentation,
+  Code,
 } from "lucide-react";
 import { axiosInstance } from "../context/axios";
 import endpoints from "../endpoints/endpoints";
@@ -83,10 +85,17 @@ const NavBar = () => {
           </Link>
           <Link
             className={styles.links}
-            to="/subjects"
+            to="/ppt"
             onClick={() => setIsOpen(false)}
           >
-            <BookOpen size={20} /> Subject Directory
+            <Presentation size={20} /> Presentations
+          </Link>
+          <Link
+            className={styles.links}
+            to="/programming"
+            onClick={() => setIsOpen(false)}
+          >
+            <Code size={20} /> Programming
           </Link>
           <Link
             className={styles.links}

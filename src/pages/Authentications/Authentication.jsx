@@ -1,10 +1,10 @@
   import { useContext, useState } from 'react';
-  import { UserContext } from '../App';
+  import { UserContext } from '../../App';
   import { Mail, Lock, User, ArrowRight, Github, Eye, EyeOff } from 'lucide-react';
-  import endpoints from '../endpoints/endpoints';
+  import endpoints from '../../endpoints/endpoints';
   import axios from 'axios'
   import {useNavigate} from "react-router-dom"
-  import {axiosInstance} from '../context/axios'
+  import {axiosInstance} from '../../context/axios'
   const styles = {
     container: "min-h-screen bg-gradient-to-br from-gray-100 to-white flex items-center justify-center p-4",
     card: "max-w-md w-full bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl p-8",

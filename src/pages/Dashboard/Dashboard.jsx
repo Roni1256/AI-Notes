@@ -17,7 +17,6 @@ const Dashboard = () => {
     setPage(path.charAt(0).toUpperCase() + path.slice(1))
     
   }, [location.pathname])
-  console.log(user);
   
   return (
     <div className='flex  w-full'>

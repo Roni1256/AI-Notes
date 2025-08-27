@@ -22,7 +22,9 @@ import EditFolder from "./pages/Folder/EditFolder";
 import { Navigate } from "react-router-dom";
 import PPTHome from "./pages/PPT/PPTHome";
 import Programmers from "./pages/Programmers/Programmers";
-import FlowchartHome from "./pages/Flowcharts/FlowchartHome";
+import FlowchartHome from "./pages/Flowcharts/pages/FlowchartHome";
+import FlowChartWorkSpace from "./pages/Flowcharts/pages/FlowChartWorkSpace";
+import ProtectedRoutes from "./utils/ProtectedRoutes";
 
 export const UserContext = createContext();
 export const LoaderContext = createContext();
@@ -64,22 +66,22 @@ const App = () => {
           <Routes>
             <Route
               path="/"
-              element={!isLoggedIn ? <Landing /> : <Navigate to="/workspace" />}
+              element={!isLoggedIn ? <Landing /> : <Navigate to="/dashboard/workspace" />}
             />
             <Route
               path="/authenticate"
               element={
-                !isLoggedIn ? <Authentication /> : <Navigate to="/workspace" />
+                !isLoggedIn ? <Authentication /> : <Navigate to="/dashboard/workspace" />
               }
             />
             <Route
               path="/verification"
               element={
-                !isLoggedIn ? <Verification /> : <Navigate to="/workspace" />
+                !isLoggedIn ? <Verification /> : <Navigate to="/dashboard/workspace" />
               }
             />
 
-            <Route
+            {/* <Route
               path="/"
               element={isLoggedIn ? <Dashboard /> : <Navigate to="/" />}
             >
@@ -135,8 +137,69 @@ const App = () => {
                 path="flowchart"
                 element={isLoggedIn ? <FlowchartHome /> : <Navigate to="/" />}
               />
+            </Route> */}
+
+            <Route element={<ProtectedRoutes/>} path="/">
+              <Route path="/dashboard" element={<Dashboard/>}>
+
+              <Route
+                path="ai-notes"
+                element={<AIPrompt />}
+              />
+              <Route
+                path="workspace"
+                element={<Workspace />}
+              />
+              <Route
+                path="workspace/new-note"
+                element={isLoggedIn ? <NewNotes /> : <Navigate to="/" />}
+              />
+              <Route
+                path="workspace/:id"
+                element={isLoggedIn ? <Note /> : <Navigate to="/" />}
+              />
+              <Route
+                path="profile"
+                element={isLoggedIn ? <Profile /> : <Navigate to="/" />}
+              />
+              <Route
+                path="folders"
+                element={isLoggedIn ? <Folders /> : <Navigate to="/" />}
+              />
+              <Route
+                path="folders/new-folder"
+                element={isLoggedIn ? <NewFolder /> : <Navigate to="/" />}
+              />
+              <Route
+                path="folders/edit-folder/:foldername"
+                element={isLoggedIn ? <EditFolder /> : <Navigate to="/" />}
+              />
+              <Route
+                path="folders/:foldername"
+                element={isLoggedIn ? <Folder /> : <Navigate to="/" />}
+              />
+              <Route
+                path="folders/:foldername/:id"
+                element={isLoggedIn ? <File /> : <Navigate to="/" />}
+              />
+              <Route
+                path="ppt"
+                element={isLoggedIn ? <PPTHome /> : <Navigate to="/" />}
+              />
+              <Route
+                path="programming"
+                element={isLoggedIn ? <Programmers /> : <Navigate to="/" />}
+              />
+              <Route
+                path="flowchart"
+                element={isLoggedIn ? <FlowchartHome /> : <Navigate to="/" />}
+              />
+              </Route>
+
             </Route>
+            <Route path="/flowchart-workspace" element={<FlowChartWorkSpace/>}></Route>
           </Routes>{" "}
+
         </LoaderContext.Provider>
       </UserContext.Provider>
     </div>

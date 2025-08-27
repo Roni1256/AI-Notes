@@ -22,7 +22,7 @@ import endpoints from "../endpoints/endpoints";
 
 const styles = {
   container:
-    "fixed top-0 left-0 overflow-auto bg-white/10 md:bg-white backdrop-blur-md  w-[250px] md:w-[300px] transition-all duration-300 transform z-40 border-r border-neutral-200", 
+    "fixed top-0 left-0 overflow-auto bg-white/10 md:bg-white backdrop-blur-md  w-[250px] md:w-[300px] transition-all duration-300 transform z-50 border-r border-neutral-200",
   mobileContainer:
     "fixed top-0 left-0 h-full bg-white/10 shadow-lg w-[250px] transition-all duration-300 transform -translate-x-full",
   subcontainer: "flex flex-col p-4 gap-2",
@@ -30,22 +30,50 @@ const styles = {
   links:
     "flex  items-center gap-3 p-2 rounded-lg text-neutral-900 hover:bg-gray-200 active:ring-2 active:ring-gray-700 transition duration-300 ease-in-out",
   sectionTitle: "text-sm font-semibold text-neutral-500 px-4 mt-6 mb-2",
-  upgradeContainer: "bg-gradient-to-r from-neutral-900 to-neutral-800 m-2 p-4 rounded-lg text-white",
-  upgradeButton: "mt-3 w-full bg-white text-neutral-900 py-2 rounded-lg font-semibold hover:bg-gray-100 transition-all",
+  upgradeContainer:
+    "bg-gradient-to-r from-neutral-900 to-neutral-800 m-2 p-4 rounded-lg text-white",
+  upgradeButton:
+    "mt-3 w-full bg-white text-neutral-900 py-2 rounded-lg font-semibold hover:bg-gray-100 transition-all",
   menuButton:
     "md:hidden fixed top-4 left-4 z-50 bg-white p-2 rounded-lg shadow-md",
-  overlay: "md:hidden fixed inset-0 bg-opacity-50 z-0",
+  overlay: "md:hidden fixed inset-0 bg-opacity-50 z-50",
 };
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  
+
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
-
+  const routesList = [
+    {
+      label: "Home",
+      element: Home,
+      to: "/dashboard/workspace",
+    },
+    {
+      label: "AI Generated Notes",
+      element: Sparkles,
+      to: "/dashboard/ai-notes",
+    },
+    {
+      label: "Presentations",
+      element: Presentation,
+      to: "/dashboard/ppt",
+    },
+    {
+      label: "Programming",
+      element: Code,
+      to: "/dashboard/programming",
+    },
+    {
+      label: "Flow Charts",
+      element: RiFlowChart,
+      to: "/dashboard/flowchart",
+    },
+  ];
   return (
     <>
       <button onClick={toggleSidebar} className={styles.menuButton}>
@@ -55,7 +83,7 @@ const NavBar = () => {
       {isOpen && <div className={styles.overlay} onClick={toggleSidebar}></div>}
 
       <div
-        className={`${styles.container} ${
+        className={`${styles.container}  ${
           !isOpen ? "md:translate-x-0 -translate-x-full" : "translate-x-0"
         } ${isOpen ? "" : "md:relative"}`}
       >
@@ -63,51 +91,25 @@ const NavBar = () => {
           <h1 className={styles.logo}>AI-Notes</h1>
         </div>
         <div className={styles.subcontainer}>
-          <Link
-            className={styles.links}
-            to="/"
-            onClick={() => setIsOpen(false)}
-          >
-            <Home size={20} /> Home
-          </Link>
-          <Link
-            className={styles.links}
-            to="/ai-notes"
-            onClick={() => setIsOpen(false)}
-          >
-            <Sparkles size={20} /> AI Generated Notes
-          </Link>
-          <Link
-            className={styles.links}
-            to="/workspace"
-            onClick={() => setIsOpen(false)}
-          >
-            <LayoutDashboard size={20} /> My Workspace
-          </Link>
-          <Link
-            className={styles.links}
-            to="/ppt"
-            onClick={() => setIsOpen(false)}
-          >
-            <Presentation size={20} /> Presentations
-          </Link>
-          <Link
-            className={styles.links}
-            to="/programming"
-            onClick={() => setIsOpen(false)}
-          >
-            <Code size={20} /> Programming
-          </Link>
-          <Link
-            className={styles.links}
-            to="/flowchart"
-            onClick={() => setIsOpen(false)}
-          >
-            <RiFlowChart size={20}/> Flow Charts
-          </Link>
-          <div className="bg-gray-200 w-full h-[0.5px]"/>
-          <h2 className={styles.sectionTitle}>MY LIBRARY</h2>
+          {routesList.map((item,index) => {
+            return (
+              <>
+                <Link
+                  className={styles.links}
+                  to={item.to}
+                  onClick={() => setIsOpen(false)}
+                  key={index}
+                >
+                  <item.element size={20} /> {item.label}
+                </Link>
+              </>
+            );
+          })}
           
+          <div className="bg-gray-200 w-full h-[0.5px]" />
+
+          <h2 className={styles.sectionTitle}>MY LIBRARY</h2>
+
           <Link
             className={styles.links}
             to="/folders"

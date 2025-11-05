@@ -32,6 +32,8 @@ export const LoaderContext = createContext();
 const App = () => {
   const [isLoggedIn, setLoggedIn] = useState(false);
   const [isInitialLoading, setIsInitialLoading] = useState(true);
+    const [tasks,setTasks]=useState([])
+  const [inp,setInp]=useState("")
 
   const navigate = useNavigate();
   useEffect(() => {
@@ -59,8 +61,18 @@ const App = () => {
   if (isInitialLoading) {
     return <Loader />;
   }
+
+
+  function addTask(){
+    setTasks([...tasks,inp]);
+  }
+  function deleteTask(index){
+    const newTasks=tasks.filter((task,idx)=>idx!==index);
+    setTasks(newTasks);
+  }
   return (
     <div className="">
+    
       <UserContext.Provider value={[isLoggedIn, setLoggedIn]}>
         <LoaderContext.Provider value={[isInitialLoading, setIsInitialLoading]}>
           <Routes>
@@ -80,64 +92,6 @@ const App = () => {
                 !isLoggedIn ? <Verification /> : <Navigate to="/dashboard/workspace" />
               }
             />
-
-            {/* <Route
-              path="/"
-              element={isLoggedIn ? <Dashboard /> : <Navigate to="/" />}
-            >
-              <Route
-                path="ai-notes"
-                element={isLoggedIn ? <AIPrompt /> : <Navigate to="/" />}
-              />
-              <Route
-                path="workspace"
-                element={isLoggedIn ? <Workspace /> : <Navigate to="/" />}
-              />
-              <Route
-                path="workspace/new-note"
-                element={isLoggedIn ? <NewNotes /> : <Navigate to="/" />}
-              />
-              <Route
-                path="workspace/:id"
-                element={isLoggedIn ? <Note /> : <Navigate to="/" />}
-              />
-              <Route
-                path="profile"
-                element={isLoggedIn ? <Profile /> : <Navigate to="/" />}
-              />
-              <Route
-                path="folders"
-                element={isLoggedIn ? <Folders /> : <Navigate to="/" />}
-              />
-              <Route
-                path="folders/new-folder"
-                element={isLoggedIn ? <NewFolder /> : <Navigate to="/" />}
-              />
-              <Route
-                path="folders/edit-folder/:foldername"
-                element={isLoggedIn ? <EditFolder /> : <Navigate to="/" />}
-              />
-              <Route
-                path="folders/:foldername"
-                element={isLoggedIn ? <Folder /> : <Navigate to="/" />}
-              />
-              <Route
-                path="folders/:foldername/:id"
-                element={isLoggedIn ? <File /> : <Navigate to="/" />}
-              />
-              <Route
-                path="ppt"
-                element={isLoggedIn ? <PPTHome /> : <Navigate to="/" />}
-              />
-              <Route
-                path="programming"
-                element={isLoggedIn ? <Programmers /> : <Navigate to="/" />}
-              />
-              <Route
-                path="flowchart"
-                element={isLoggedIn ? <FlowchartHome /> : <Navigate to="/" />}
-              />
-            </Route> */}
 
             <Route element={<ProtectedRoutes/>} path="/">
               <Route path="/dashboard" element={<Dashboard/>}>

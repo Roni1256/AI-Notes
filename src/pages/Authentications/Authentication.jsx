@@ -57,7 +57,7 @@
           console.log(resp.data);
           
           setAuthDetails(resp.data)
-          navigate('/')
+          navigate('/dashboard/workspace')
           console.log(resp);
         }else{
           if(password !== confirmPassword) {

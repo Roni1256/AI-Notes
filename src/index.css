@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @import "quill/dist/quill.core.css";
-@themes {
-  --font-display: "Open Sans ", "sans-serif";
+@theme {
+  --font-display: "Open Sans", "sans-serif";
 }
 /* HTML: <div class="loader"></div> */
 ::-webkit-scrollbar {

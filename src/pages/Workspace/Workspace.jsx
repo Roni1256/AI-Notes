@@ -120,7 +120,7 @@ const Workspace = () => {
             <Button
               icon={Plus}
               className="w-fit h-fit text-nowrap "
-              onClick={() => navigate("/workspace/new-note")}
+              onClick={() => navigate("new-note")}
             >
               New Note
             </Button>

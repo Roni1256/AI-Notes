@@ -112,7 +112,7 @@ const NavBar = () => {
 
           <Link
             className={styles.links}
-            to="/folders"
+            to="/dashboard/folders"
             onClick={() => setIsOpen(false)}
           >
             <Folder size={20} /> My Folders
